@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Register Page</title>
+    <!-- Include Bootstrap CSS link -->
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+
+            <!-- Registration Form -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body shadow-md shadow-slate-600">
+                        <h2 class="card-title">Register</h2>
+                        <form action="/register/create" method="POST">
+                            <div class="form-group">
+                                <label for="registerName" class="mb-1">Name</label>
+                                <input type="text" class="form-control mb-1" name="username" id="username" placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="registerEmail" class="mb-1">Email address</label>
+                                <input type="email" class="form-control mb-1" name="email" id="email" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="registerPassword" class="mb-1">Password</label>
+                                <input type="password" class="form-control mb-1" name="password" id="password" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-success mt-1 mb-1">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Include Bootstrap JS and jQuery scripts -->
+    
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+  <%- include('header.ejs') %>
+
+    <div class="Chart">
+      <canvas class="chart-container" id="myChart" width="400"></canvas>
+    </div>
+    <div class="grid-container">
+      <% const sortedRoles=Object.entries(userRole).sort((a,b)=>b[1]-a[1]) %>
+        <% sortedRoles.forEach(([roleName, roleScore])=> { %>
+          <% const predefinedRole=predefinedRoles[roleName] %>
+            <div class="card">
+              <div class="role-name" id="<%= roleName %>">
+                <%= predefinedRole.name %>
+              </div>
+              <div class="role-detial">
+                <p>
+                  <%= predefinedRole.descripton %>
+                </p>
+                <p><span class="heatext">Strengths: </span>
+                  <%= predefinedRole.Strengths %>
+                </p>
+                <p><span class="heatext">Allowable weaknesses: </span>
+                  <%= predefinedRole.weeknesses %>
+                </p>
+                <p><span class="heatext">Don't be surprised to find that: </span>
+                  <%= predefinedRole.surprised %>
+                </p>
+              </div>
+            </div>
+            <% }) %>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/js/chartRole.js"></script>
+    <script src="/js/home.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Bootstrap Navbar Example</title>
+    <style>
+        .logout-button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius : 5px;
+        }
+
+        .logout-button:hover {
+            background-color: darkred;
+        }
+
+        .logout-button:active {
+            background-color: maroon;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Your Website</a>
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/form">Form</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/history">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.belbin.com/about/belbin-team-roles" target="_blank">Belbin</a>
+                    </li>
+                </ul>
+                <% if(loggedIn){ %>
+                    <div class="navbar-nav" id="loggedInContent">
+                        <button class="logout-button" onclick="window.location.href='/logout'" >Logout</button>
+                    </div>
+                    <% } %>
+                        <% if(!loggedIn) {%>
+                            <div class="navbar-nav" id="nonLoggedInContent">
+                                <button class="btn btn-secondary"><a class="nav-item nav-link"
+                                        href="/login">Login</a></button>
+                                <button><a class="btn btn-secondary" href="/register">Register</a></button>
+                            </div>
+                            <% } %>
+            </div>
+        </nav>
+    </header>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>

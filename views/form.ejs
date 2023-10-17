@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Form</title>
+</head>
+
+<body>
+    <%- include('header.ejs') %>
+    <div class="container bg-green-600">
+        <br>
+        <h1  class="text-center">Belbin's Team Roles <br>A
+            self-Perception Inventory
+        </h1>
+        <br>
+    </div>
+    <div class="flex items-center">
+        <!-- <p style="font-family: 'Niramit',sans-serif;" class="mt-6 text-black text-lg">คำแนะนำ :</p> -->
+        <p style="font-family: 'Niramit';" class="ml-7 mr-7"><span style="color: #000000;font-weight: 600;">คำแนะนำ
+                :</span>
+            แบบทดสอบนี้แบ่งออกเป็น 7 ส่วน แต่ละส่วนมีคะแนนรวม 10 คะแนน และใน 10 คะแนนนี้
+            ให้แบ่งไปให้คำตอบที่ตรงกับเรามากที่สุด โดยไม่จำกัดจำนวนข้อ
+            เมื่อตอบครบทุกส่วนแล้วให้กด สรุปผลไปหน้าถัดไป
+        </p>
+    </div>
+    <section class="container">
+        <form id="BelbinForm" action="/form/sumit" method="POST">
+            
+            <!--section1 -->
+            <fieldset class="section active border p-4 rounded-md my-4" data-index="1">
+                <legend style="font-family:'Niramit';" class="font-semibold">ส่วนที่ 1: การมีส่วนร่วมกับทีม</legend>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> a. ข้าพเจ้าสามารถมองเห็นโอกาศใหม่ๆ
+                        และใช้โอกาศนั้นให้เป็นประโยชน์</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="a1" id="a1" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> b. ข้าพเจ้าสามารถทำงานได้ดีกับเพื่อนร่วมงานหลากหลายประเภท</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" id="b1" name="b1" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> c.
+                        ความสามารถในการสร้างแนวคิดใหม่เป็นคุณสมบัติประจำตัวของข้าพเจ้า</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" id="c1" name="c1" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> d.
+                        ข้าพเจ้าสามารถค้นพบและดึงความสามารถของเพื่อนร่วมงานออกมาเพื่อให้งานบรรลุวัตถุประสงค์</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" id="d1" name="d1" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> e. ข้าพเจ้ามั่นใจว่าข้าพเจ้าสามารถทำงานทุกประเภทให้สำเร็จลุล่วง
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" id="e1" name="e1" value="<%= i %>" 
+                                    <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> f.
+                        ความสามารถด้านเทคนิคและประสบการณ์การทำงานเป็นสมบัติล้ำค่าของข้าพเจ้า</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" id="f1" name="f1" value="<%= i %>" 
+                                    <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> g. ข้าพเจ้าพร้อมที่จะแสดงอกกอย่างตรงไปตรงมาเพื่อความถูกต้อง</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" id="g1" name="g1" value="<%= i %>" 
+                                    <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> h.
+                        ข้าพเจ้าสามารถบอกได้ว่าแผนงานหรือแนวคิดใดเหมาะสมกับแต่ละสถานการณ์</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" id="h1" name="h1" value="<%= i %>" 
+                                    <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-1">
+                    <p style="font-family: 'Niramit';"> i. ข้าพเจ้าสามารถใช้เหตุผลที่ปราศจากอคติในการเลือกวิธีปฏิบัติงาน
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" id="i1" name="i1" value="<%= i %>" 
+                                    <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </fieldset>
+
+
+            <!--section 2-->
+            <fieldset class="section border p-4 rounded-md my-4" data-index="2">
+                <legend style="font-family:'Niramit';" class="font-semibold" id="sec2">ส่วนที่ 2:
+                    ปัญหาที่เกี่ยวกับการทำงานเป็นทีม
+                </legend>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';">a.
+                        ข้าพเจ้าต้องการให้การประชุมแต่ละครั้งมีการควบคุมและการจัดการที่ดี</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="a2" id="a2" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';">
+                        b. ข้าพเจ้าให้โอกาสมากเกินไปกับเพื่อนร่วมงานที่มีความคิดหน้าสนใจแต่แสดงออกอย่างไม่ถูกต้อง</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="b2" id="b2" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';">c. ข้าพเจ้าลังเลที่จะมีส่วนร่วมกับงานที่ข้าพเจ้ามีความรู้น้อย</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="c2" id="c2" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';">d. ข้าพเจ้ามีแนวโน้มที่จะแสดงออกมาก
+                        เมื่อคณะทำงานเริ่มเปิดประเด็นใหม่</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="d2" id="d2" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> e.
+                        ทัศนคติส่วนตัวของข้าพเจ้าทำให้ข้าพเจ้ารู้สึกยากลำบากในการเข้าร่วมกลุ่มด้วยความพร้อมและมองโลกในแง่ดี
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="e2" id="e2" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> f. ข้าพเจ้าบางครั้งใช้ความก้าวร้าวและเด็ดขาดในการแก้ไขปัญหาสำคัญ
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="f2" id="f2" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> g. ข้าพเจ้าไม่ชอบแสดงออกว่าเป็นผู้นำ
+                        อาจเนื่องจากข้าพเจ้าคิดว่าการทำงานเป็นทีมต้องใช้ความรับผิดชอบมากเกินไป</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="g2" id="g2" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';">h. ข้าพเจ้ามีความคิดผุดขึ้นมาเรื่อยๆ
+                        จนทำให้เสียสมาธิกับสิ่งที่กำลังเกิดขึ้นรอบตัว</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="h2" id="h2" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-1">
+                    <p style="font-family: 'Niramit';"> i.
+                        ข้าพเจ้าลังเลที่จะแสดงความคิดเห็นเกี่ยวกับข้อเสนอโครงการและแผนงานที่ยังไม่สมบูรณ์หรือไม่ละเอียดเพียงพอ
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="i2" id="i2" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </fieldset>
+
+
+            <!--section 3-->
+            <fieldset class="section border p-4 rounded-md my-4" data-index="3">
+                <legend style="font-family:'Niramit';" class="font-semibold">ส่วนที่ 3:
+                    การทำงานในโครงการที่เดี่ยวข้องกับคนอื่น
+                </legend>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';">
+                        a. ข้าพเจ้าสามารถโน้มน้าวผู้อื่นได้โดยไม่จำเป็นต้องกดดัน</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="a3" id="a3" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> b.
+                        ข้าพเจ้าถนัดในการป้องกันความผิดพลาดจากความเผอเรอที่อาจทำให้งานเสียหาย</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="b3" id="b3" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> c. ข้าพเจ้าชอบการรวบรัดเพื่อความมั่นใจว่าการประชุมแต่ละครั้ง
+                        จะไม่เสียเวลามากเินไปหรือหลงประเด็น</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="c3" id="c3" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> d. ข้าพเจ้ามีความคิดและแสดงออกเป็นเอกลักษณ์ของตนเอง</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="d3" id="d3" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> e. ข้าพเจ้าพร้อมที่จะสนับสนุนข้อชี้แนะที่มีประโยชน์
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="e3" id="e3" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> f. ข้าพเจ้ามองเห็นแนวคิดและแนวทางพัฒนาใหม่ๆอย่างรวดเร็ว</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="f3" id="f3" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> g. ข้าพเจ้าพยายามรักษาความเป็นมืออาชีพ</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="g3" id="g3" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> h. ข้าพเจ้ามีความสามารถในการตัดสินปัญหาได้ถูกต้อง</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="h3" id="h3" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-1">
+                    <p style="font-family: 'Niramit';"> i. ข้าพเจ้าสามารถบริหารจัดการให้เหมาะสมกับความต้องการของงาน
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="i3" id="i3" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!--section 4-->
+            <fieldset class="section border p-4 rounded-md my-4" data-index="4">
+                <legend style="font-family:'Niramit';" class="font-semibold">ส่วนที่ 4: คุณสมบัติในการทำงานเป็นทีม
+                </legend>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';">
+                        a. ข้าพเจ้าชอบทำความรู้จักกับเพื่อนร่วมงานให้ดียิ่งขึ้น</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="a4" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> b. ข้าพเจ้าแสดงออกในสิ่งที่ข้าพเจ้ารู้</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="b4" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> c. ข้าพเจ้าไม่ลังเลที่จะแย้งแนวคิดของผู้อื่น</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="c4" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> d. ข้าพเจ้าโต้เถียงเมื่อคิดว่ามีบางอย่างผิดพลาด</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="d4" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> e. ข้าพเจ้ามีพรสวรรค์ในการทำงานให้สำเร็จลุล่วงตามแผน
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="e4" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> f. ข้าพเจ้าหลีกเลี่ยงประเด็นที่ชัดเจนแล้ว
+                        และชอบเปิดประเด็นสิ่งที่ยังคลุมเคลือ</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="f4" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> g. ข้าพเจ้าใช้ความเป็นมืออาชีพกับงานทุกประเภท</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="g4" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> h. ข้าพเจ้าชอบเป็นผู้ประสานงานกับบุคคลภายนอก</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="h4" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-1">
+                    <p style="font-family: 'Niramit';"> i. ข้าพเจ้าชอบรับฟังมุมมองที่หลากหลาย
+                        และสามารถนำมาใช้ในการตัดสินใจได้อย่างรวดเร็ว
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="i4" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!--section 5-->
+            <fieldset class="section border p-4 rounded-md my-4" data-index="5">
+                <legend style="font-family:'Niramit';" class="font-semibold">ส่วนที่ 5: ความพอใจในการทำงาน
+                </legend>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';">
+                        a. ข้าพเจ้าชอบวิเคราะห์สถานการณ์และชั่นน้ำหนักทางเลือกต่างๆ</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="a5" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> b. ข้าพเจ้าชอบค้นหาวิธีการแก้ไขปัญหา</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="b5" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> c. ข้าพเจ้าชอบพัฒนาความสำพันธ์กับเพื่อนร่วมงาน</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="c5" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> d. ข้าพเจ้ามีอิทธิพลมากกับการตัดสินใจของกลุ่ม</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="d5" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> e. ข้าพเจ้าชอบพบปะผู้คนที่มีแนวคิดต่างกัน
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="e5" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> f.
+                        ข้าพเจ้าสามารถทำให้คนอื่นคล้อยตามในวัตถุประสงค์และลำดับความสำคัญของงาน</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="f5" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> g. ข้าพเจ้ามีสมาธิเต็มที่กับงาน</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="g5" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> h. ข้าพเจ้าชอบงานที่ใช้ความคิดสร้างสรรค์</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="h5" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-1">
+                    <p style="font-family: 'Niramit';"> i.
+                        ข้าพเจ้ารู้สึกว่าความสามารถพิเศษและการฝึกฝนทำให้ข้าพเจ้าได้เปรียบผู้อื่น
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="i5" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!--section 6-->
+            <fieldset class="section border p-4 rounded-md my-4" data-index="6">
+                <legend style="font-family:'Niramit';" class="font-semibold">ส่วนที่ 6:
+                    เมื่อในรับงานที่ยากในระยะเวลาจำกัดและทีมงานใหม่ที่ไม่คุ้นเคย
+                </legend>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';">
+                        a. ข้าพเจ้าจะค้นคว้าให้มากที่สุดเท่าที่จะจำได้</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="a6" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> b. ข้าพเจ้าจะพยายามแก้ไขปัญหาด้วยตัวเองแล้วจึงนำเสนอต่อทีมงาน
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="b6" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> c. ข้าพเจ้าอยากทำงานร่วมกับเพื่อนร่วมงานที่มีแนวคิดในเชิงบวก</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="c6" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> d.
+                        ข้าพเจ้าจะหาแนวทางลดขนาดของงานโดยแบ่งงานให้เหมาะสมที่สุดกับสมาชิกแต่ละคนในทีม</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="d6" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> e. ข้าพเจ้าสามารถรับรู้ได้ว่าอะไรคือสิ่งที่เร่งด่วน
+                        ช่วยให้มันใจได้ว่างานจะไม่ล่าช้ากว่ากำหนด
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="e6" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> f. ข้าพเจ้าเชื่อว่าข้าพเจ้าสามารถควบคุมอารมณ์ได้ดี</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="f6" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> g. ข้าพเจ้าจะทำงานหลักต่อไปภายใต้ความขัดแย้งและแรงกดดัน</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="g6" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> h. ข้าพเจ้าต้องการเป็นผู้นำของกลุ่มหากพบว่างานไม่มีความก้าวหน้า
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="h6" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-1">
+                    <p style="font-family: 'Niramit';"> i.
+                        ข้าพเจ้าจะการสนทนาหรือการประชุดแสดงความคิดเห็นที่จะกระตุ้นให้เกิดความคิดใหม่ๆเพื่อให้งานก้าวหน้า
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="i6" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!--section 7-->
+            <fieldset class="section border p-4 rounded-md my-4" data-index="7">
+                <legend style="font-family:'Niramit';" class="font-semibold">ส่วนที่ 7: เมื่อพบปัญหาในการทำงาน
+                </legend>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';">
+                        a. ข้าพเจ้าแสดงออกมากเกินไปเมื่อเพื่อนร่วมงาน "ดองงาน"</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="a7" id="a7" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> b. เพื่อนร่วมงานบางคนต่อว่า ว่าข้าพเจ้าละเอียดเกินไป</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="b7" id="b7" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> c.
+                        ความต้องการตรวจสอบความถูกต้องของรายละเอียดสำคัญของข้าพเจ้าไม่เป็นที่ปารถนาในบางเวลา</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="c7" id="c7" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> d. ข้าพเจ้าเบื่อหน่ายหากต้องร่วมงานกับเพื่อนร่วมงานที่เฉื่อยชา
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="d7" id="d7" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> e. ข้าพเจ้าคิดว่าการเริ่มต้นงานได้ยาก หากจุดมุ่งหมายยังไม่ชัดเจน
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="e7" id="e7" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> f. ข้าพเจ้ามีปัญหาในการจัดการปัญหาที่ซับซ้อน</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="f7" id="f7" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> g.
+                        ข้าพเจ้าขอความช่วยเหลือจากเพื่อนร่วมงานเมื่อได้รับงานที่ข้าพเจ้าไม่สามารถทำได้</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="g7" id="g7" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p style="font-family: 'Niramit';"> h. ข้าพเจ้าคิดว่าข้าพเจ้าทำงานคนเดียวได้ดีกว่าทำงานเป็นทีม</p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="h7" id="h7" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="mb-1">
+                    <p style="font-family: 'Niramit';"> i. ข้าพเจ้าลังเลในการแสดงความคิดเห็นต่อหน้าผู้ใหญ่หรือผู้มีอำนาจ
+                    </p>
+                    <div class="row-radio">
+                        <% for(let i=0; i<=10;i++) {%>
+                            <div class="mb-2 ">
+                                <label class="mb-2">
+                                    <input class="form-check-input" type="radio" name="i7" id="i7" value="<%= i %>"
+                                        <%if(i===0){%>checked<%} %>>
+                                        <span class="mlr2">
+                                            <%= i %>
+                                        </span>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="container-fluid">
+                <div class="text-center" id="total-score-notifications" style="color: red;"></div>
+            </div>
+            <div class="container-pn">
+                <div class="container-field">
+                    <div class="prev-next-button">
+                        <button class="prevButton"
+                            type="button" id="prevButton" onclick="prevSection()">Previous</button>
+                        <button class="nextButton"
+                            type="button" id="nextButton" onclick="nextSection()">Next</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <button id="sB" type="submit"
+                    class="submitB">Submit</button>
+            </div>
+        </form>
+
+
+    </section>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/formhide.js"></script>
+    <script src="/js/noticescore.js"></script>
+</body>
+
+</html>
