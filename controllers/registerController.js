@@ -24,7 +24,7 @@ router.post('/create', async (req, res) => {
             password : hashPassword,
         })
         await newUser.save()
-        res.redirect(('/'))
+        res.redirect(('/login'))
     } catch (err) {
         console.error(err)
         res.status(500).redirect('/register')
