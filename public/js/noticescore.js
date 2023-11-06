@@ -14,7 +14,7 @@ function cal(fieldset) {
     return fieldsetScore
 }
 
-let totalScoreExceedsLimit = false
+
 
 fieldsets.forEach((fieldset)=>{
     const radioButtons = fieldset.querySelectorAll('input[type=radio]')
@@ -22,14 +22,14 @@ fieldsets.forEach((fieldset)=>{
         radioButton.addEventListener('change', ()=>{
             const fieldsetScore = cal(fieldset)
             if (fieldsetScore>10){
-                totalScoreExceedsLimit = true
                 const fieldIndex = fieldset.getAttribute('data-index')
                 totalScoreNoti.textContent = 'คะแนนในตอนนี้เกิน 10 ครับ ที่ section : '+ fieldIndex
+                submitButton.disabled = true
             }else{
-                totalScoreNoti.textContent = '';
-                totalScoreExceedsLimit = fieldsets.some((otherFieldset)=>call(otherFieldset)>10)
+                totalScoreNoti.textContent = ''
+                submitButton.disabled = false
             }
-            submitButton.disabled = totalScoreExceedsLimit
+            
         })
     })
 })

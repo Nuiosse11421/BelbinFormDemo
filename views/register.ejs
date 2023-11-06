@@ -19,6 +19,11 @@
                 <div class="card">
                     <div class="card-body shadow-md shadow-slate-600">
                         <h2 class="card-title">Register</h2>
+                        <% if(errorMessage){ %>
+                            <p class="alert alert-danger">
+                                <%= errorMessage%>
+                            </p>
+                            <% } %>
                         <form action="/register/create" method="POST">
                             <div class="form-group">
                                 <label for="registerName" class="mb-1">Name</label>
@@ -26,7 +31,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="registerEmail" class="mb-1">Email address</label>
-                                <input type="email" class="form-control mb-1" name="email" id="email" placeholder="Enter email">
+                                <input type="email" class="form-control mb-1" name="email" id="email" placeholder="Enter email" >
                             </div>
                             <div class="form-group">
                                 <label for="registerPassword" class="mb-1">Password</label>
