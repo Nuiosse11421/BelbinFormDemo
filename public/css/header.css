@@ -1,0 +1,26 @@
+.navbar-nav .nav-item .nav-link:hover{
+    color: white ;
+}
+
+.navbar-nav .nav-item .nav-link:active{
+    color: black ;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+.logout-button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius : 5px;
+}
+
+.logout-button:hover {
+    background-color: darkred;
+}
+
+.logout-button:active {
+    background-color: maroon;
+}
