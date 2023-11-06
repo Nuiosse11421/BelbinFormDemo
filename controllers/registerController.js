@@ -6,16 +6,16 @@ import Answers from '../models/answerHistoryModel.js'
 import bcrypt from 'bcrypt'
 
 router.get('/', (req, res) => {
-    res.render('register')
+    res.render('register',{errorMessage: '',email:'', username:''})
 })
 
 router.post('/create', async (req, res) => {
     const { username, email, password } = req.body
 
     try {
-        const existingUser = await User.findOne({ email})
+        const existingUser = await User.findOne({ email })
         if(existingUser){
-            return res.status(400).redirect('/register')
+            return res.render('register',{errorMessage: 'Email already exists'})
         }
         const hashPassword = await bcrypt.hash(password,10)
         const newUser = new User({
